@@ -4,7 +4,7 @@
   "description": "abstraction for function arguments",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -R Spec -r tests/base.js tests/**/*.js"
+    "test": "mocha -R spec -r tests/base.js tests/**/*.js"
   },
   "author": "Bruno Trecenti <bruno.lopetrecenti@gmail.com>",
   "license": "BSD",

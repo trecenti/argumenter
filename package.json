@@ -1,0 +1,15 @@
+{
+  "name": "argumenter",
+  "version": "0.0.1",
+  "description": "abstraction for function arguments",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R Spec -r tests/base.js tests/**/*.js"
+  },
+  "author": "",
+  "license": "BSD",
+  "devDependencies": {
+    "mocha": "~1.15.1",
+    "chai": "~1.8.1"
+  }
+}

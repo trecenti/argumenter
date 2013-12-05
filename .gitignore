@@ -1,0 +1,6 @@
+*.swa
+*.swo
+*.swp
+*.log
+node_modules
+

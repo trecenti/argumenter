@@ -6,12 +6,19 @@
   "scripts": {
     "test": "mocha -R Spec -r tests/base.js tests/**/*.js"
   },
-  "author": "",
+  "author": "Bruno Trecenti <bruno.lopetrecenti@gmail.com>",
   "license": "BSD",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/Trecenti/argumenter"
+  },
   "devDependencies": {
     "mocha": "~1.15.1",
     "chai": "~1.8.1",
     "sinon-chai": "~2.4.0",
     "sinon": "~1.7.3"
+  },
+  "engines": {
+    "node" : ">=0.10.12"
   }
 }

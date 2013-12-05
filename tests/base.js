@@ -1,1 +1,4 @@
-GLOBAL.expect = require('chai').expect;
+var chai = require('chai')
+
+chai.use(require('sinon-chai'));
+GLOBAL.expect = chai.expect;

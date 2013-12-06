@@ -1,6 +1,6 @@
 {
   "name": "argumenter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "abstraction for function arguments",
   "main": "index.js",
   "scripts": {
@@ -9,8 +9,8 @@
   "author": "Bruno Trecenti <bruno.lopetrecenti@gmail.com>",
   "license": "BSD",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/Trecenti/argumenter"
+    "type": "git",
+    "url": "https://github.com/Trecenti/argumenter"
   },
   "devDependencies": {
     "mocha": "~1.15.1",
@@ -19,6 +19,6 @@
     "sinon": "~1.7.3"
   },
   "engines": {
-    "node" : ">=0.10.12"
+    "node": ">=0.10.12"
   }
 }

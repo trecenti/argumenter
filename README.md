@@ -64,6 +64,24 @@ myFn(1); // 1
 myFn(); // 0
 ```
 
+##Spreading Array Arguments
+```js
+var argumenter = require('argumenter');
+var context = {};
+
+function myFn(array) {
+  var handler = argumenter(myFn);
+
+  handler.spread(0).spread(2)
+    .when([Object, Function, Number, Array], function (obj, fn, number, array) {
+      //do something with obj, fn, number and array
+    });
+
+  return handler.done();
+}
+myFn([{}, function () {}], 1, [[1,2]]); // will be handled as myFn({}, function() {}, 1, [1, 2])
+```
+
 ##Context Binding
 ```js
 var argumenter = require('argumenter');

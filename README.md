@@ -63,3 +63,20 @@ myFn(1, 1); // 2
 myFn(1); // 1
 myFn(); // 0
 ```
+
+##Context Binding
+```js
+var argumenter = require('argumenter');
+var context = {};
+
+function myFn() {
+  var handler = argumenter(myFn);
+
+  handler
+    .when(1, function (arg) {
+      return this; // this === context
+    });
+
+  return handler.done(context);
+}
+```

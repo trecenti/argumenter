@@ -1,4 +1,4 @@
-#Argumenter [![Build Status](https://travis-ci.org/trecenti/argumenter.png?branch=master)](https://travis-ci.org/Trecenti/argumenter)
+#Argumenter [![Build Status](https://travis-ci.org/trecenti/argumenter.png?branch=master)](https://travis-ci.org/Trecenti/argumenter) [![Build Status](https://snap-ci.com/Trecenti/argumenter/branch/master/build_image)](https://snap-ci.com/Trecenti/argumenter/branch/master/)
 
 A descriptive way to handle function arguments.
 

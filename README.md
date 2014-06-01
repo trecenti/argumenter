@@ -6,7 +6,7 @@ A descriptive way to handle function arguments.
 ```js
 var argumenter = require('argumenter');
 function myFn(opt_fn, opt_options) {
-  var handler = argumenter(myFn);
+  var handler = argumenter(arguments);
 
   handler
     .when([Function, Object], function (fn, options) {
@@ -26,7 +26,7 @@ function myFn(opt_fn, opt_options) {
 ```js
 var argumenter = require('argumenter');
 function myFn() {
-  var handler = argumenter(myFn);
+  var handler = argumenter(arguments);
 
   handler
     .when(2, function (fn, options) {
@@ -41,11 +41,30 @@ function myFn() {
 }
 ```
 
+##Passing Parameters Explicitly
+
+```js
+var argumenter = require('argumenter');
+function myFn(foo, bar) {
+  var handler = argumenter(foo);
+
+  handler
+    .when(String, function(foo) {
+      // handle string
+    })
+    .when(Number, function(foo) {
+      // handle number
+    });
+
+  return handler.done();
+}
+```
+
 ##Returning the execution
 ```js
 var argumenter = require('argumenter');
 function myFn() {
-  var handler = argumenter(myFn);
+  var handler = argumenter(arguments);
 
   handler
     .when(2, function (a, b) {
@@ -70,7 +89,7 @@ var argumenter = require('argumenter');
 var context = {};
 
 function myFn(array) {
-  var handler = argumenter(myFn);
+  var handler = argumenter(arguments);
 
   handler.spread(0).spread(2)
     .when([Object, Function, Number, Array], function (obj, fn, number, array) {
@@ -88,7 +107,7 @@ var argumenter = require('argumenter');
 var context = {};
 
 function myFn() {
-  var handler = argumenter(myFn);
+  var handler = argumenter(arguments);
 
   handler
     .when(1, function (arg) {
@@ -98,3 +117,20 @@ function myFn() {
   return handler.done(context);
 }
 ```
+
+## Non-Strict Mode
+
+This module supports non-strict usage.  If you find it more convenient, you may pass the function itself to `argumenter()`:
+
+```js
+var argumenter = require('argumenter');
+function myFn(opt_fn, opt_options) {
+  var handler = argumenter(myFn);
+
+  handler
+    .when() // ...
+
+  return handler.done();
+```
+
+> Note: Attempting to pass a function to `argumenter()` while in strict mode will result in an exception thrown.

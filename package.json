@@ -1,6 +1,6 @@
 {
   "name": "argumenter",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "abstraction for function arguments",
   "main": "index.js",
   "scripts": {
@@ -13,12 +13,13 @@
     "url": "https://github.com/Trecenti/argumenter"
   },
   "devDependencies": {
-    "mocha": "~1.15.1",
-    "chai": "~1.8.1",
-    "sinon-chai": "~2.4.0",
-    "sinon": "~1.7.3"
+    "mocha": "^1.20.0",
+    "sinon-chai": "^2.5.0"
   },
   "engines": {
     "node": ">=0.10.12"
+  },
+  "dependencies": {
+    "is-arguments": "^1.0.0"
   }
 }

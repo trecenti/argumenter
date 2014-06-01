@@ -27,17 +27,33 @@ describe('strict mode: using argumenter by type', function () {
       });
     });
 
+    describe('strict mode: invalid strategy', function () {
+      it('should fail if given an invalid strategy', function () {
+        expect(function () {
+          argumenter(arguments)
+            .when('invalid', function () {
+            })
+        }).to.throw();
+      });
+    });
 
     describe('strict mode: with multiple strategies', function () {
+
+      var Foo;
+
       beforeEach(function () {
+        Foo = function () {
+        };
         fn = function () {
           return argumenter(arguments)
                   .when(Function, function (firstFn) { return firstFn('my-fn-call'); })
-                  .when(Array, function (array) { return array.concat(1); })
                   .when(Number, function (number) { return number + 1; })
+                  .when(Foo, function(foo) { return 'bar'; })
                   .when(Object, function (obj) { obj.id = 'id'; return obj; })
+                  .when(Array, function (array) { return array.concat(1); })
                   .when(String, function (string) { return string.replace(/\s/g, '-'); })
                   .when(Boolean, function (bool) { return !bool; })
+                  .when(null, function() { return 'null'; })
                   .when(0, function () { return 'no-arguments'; })
                   .done();
         }
@@ -75,8 +91,16 @@ describe('strict mode: using argumenter by type', function () {
         expect(fn()).to.equal('no-arguments');
       });
 
+      it('executes the stategy for null', function () {
+        expect(fn(null)).to.equal('null');
+      })
+
       it('does not execute the strategy (when the arguments do not match any strategy)', function () {
-        expect(fn(null, 'b')).to.equal(undefined);
+        expect(fn(undefined, 'b')).to.equal(undefined);
+      });
+
+      it('executed strategy for custom type', function () {
+        expect(fn(new Foo())).to.equal('bar');
       });
     });
   });

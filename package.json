@@ -20,6 +20,6 @@
     "node": ">=0.10.12"
   },
   "dependencies": {
-    "is-arguments": "^1.0.0"
+    "type-of": "^2.0.1"
   }
 }
